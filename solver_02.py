@@ -32,7 +32,7 @@ def solve2(lines):
 
 if __name__ == "__main__":
 
-    with open('data/input_03.txt') as f:
+    with open('data/input_02.txt') as f:
         lines = [x.strip() for x in f.readlines()]
 
     print(solve(lines))
