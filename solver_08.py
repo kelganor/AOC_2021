@@ -22,25 +22,22 @@ def solve2(lines):
     for codes, msg in lines:
 
         nums = {}
-        codess = sorted(codes, key=lambda x: len(x))
-        print('!', codess, msg)
-
+        codes = sorted(codes, key=lambda x: len(x))
         d = {}
-        nums[codess[2]] = 4
-        nums[codess[1]] = 7
-        nums[codess[0]] = 1
-        nums[codess[-1]] = 8
+        nums[codes[2]] = 4
+        nums[codes[1]] = 7
+        nums[codes[0]] = 1
+        nums[codes[-1]] = 8
         # order matters
-        for x in codess[2]: d[x] = '4'
-        for x in codess[1]: d[x] = '7'
-        for x in codess[0]: d[x] = '1'
-        
-        for code in codess:
+        for x in codes[2]: d[x] = '4'
+        for x in codes[1]: d[x] = '7'
+        for x in codes[0]: d[x] = '1'
+
+        for code in codes:
             numcode = ''
             for x in code:
                 if x in d: numcode += d[x]
             c = Counter(numcode)
-            print('---', numcode, c)
             if len(code) == 6 and   (c['4'], c['7'], c['1']) == (2, 1, 2):
                 nums[code] = 9
             elif len(code) == 6 and (c['4'], c['7'], c['1']) == (2, 1, 1):
@@ -54,14 +51,12 @@ def solve2(lines):
             elif len(code) == 5 and (c['4'], c['7'], c['1']) == (1, 1, 2):
                 nums[code] = 3
 
-        print(nums)
         msgnum = int(''.join([
             str(nums[m]) for m in msg
         ]))
         res += msgnum
 
     return res
-    
 
 
 if __name__ == "__main__":
