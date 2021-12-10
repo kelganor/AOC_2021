@@ -1,4 +1,4 @@
-# aoc 2021-05
+# aoc 2021-06
 
 
 from functools import cache
